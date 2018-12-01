@@ -21,7 +21,7 @@ do
 	echo '#include "libft.h"' > $filename
 	echo '#include <stdlib.h>\n' >> $filename
 	echo "int\t\t${name}(void)\n{" >> $filename
-	echo "{" >> $filename	echo "\tif (atoi(${str}) == ft_atoi(${str}))" >> $filename
+	echo "\tif (atoi(${str}) == ft_atoi(${str}))" >> $filename
 	echo "\t\treturn (0);" >> $filename
 	echo "\telse" >> $filename
 	echo "\t\treturn (-1);\n}" >> $filename
@@ -29,6 +29,6 @@ do
 	let count++
 done
 
-echo "\treturn (launch_test);\n}" >> $launcher
+echo "\treturn (launch_test(test_list));\n}" >> $launcher
 
 echo "Done"
