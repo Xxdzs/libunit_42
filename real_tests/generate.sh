@@ -6,7 +6,7 @@
 #    By: angagnie <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/01 22:42:13 by angagnie          #+#    #+#              #
-#    Updated: 2018/12/02 21:07:34 by angagnie         ###   ########.fr        #
+#    Updated: 2018/12/02 22:29:15 by angagnie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -77,12 +77,12 @@ generate()
 if test $# = 0
 then
 	generate "strlen" "string" 'basic_string|Hello\040World' \
-		'empty_string|' 'other|\011!@#$%^&*()'
+		'empty_string|' "other|\\\t!@#$%^&\\\0*()"
 	generate "atoi" "stdlib" "basic_number|28" "negative|-8128" "empty|" "negative_zero|-0" \
-		"space|\040-496" "plus_sign|+1729Ramanujan" "tab|\\\t33550336Perfect" \
-		"carriage_return|\\\r+877BellPrime" "form_feed|\\\f16127CarolPrime" \
-		"vertical_tab|\\\v7057CubanPrime" "two_plus_signs|++3" \
-		"invalid_first_char|_197Chen" "leading_zeros|000231" \
+		"space|\040\040-496" "plus_sign|+1729\040Ramanujan" "tab|\040\\\t33550336\040Perfect" \
+		"carriage_return|\\\r+877\040BellPrime" "form_feed|\\\f\040-16127\040CarolPrime" \
+		"vertical_tab|\\\v7057\040CubanPrime" "two_plus_signs|++3" \
+		"invalid_first_char|~197\040Chen" "leading_zeros|000231" \
 		"combo|\040\\\r\\\v\\\n\040-00000987654321" "int_min|-2147483648" "int_max|2147483647"
 else
 	if test $1 = "fclean"

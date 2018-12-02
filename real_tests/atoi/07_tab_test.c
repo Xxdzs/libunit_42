@@ -15,7 +15,7 @@
 
 int		tab_test(void)
 {
-	if (atoi(" \t 33550336 Perfect") == ft_atoi(" \t 33550336 Perfect"))
+	if (atoi(" \t33550336 Perfect") == ft_atoi(" \t33550336 Perfect"))
 		return (0);
 	else
 		return (-1);

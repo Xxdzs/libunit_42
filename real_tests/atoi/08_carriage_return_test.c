@@ -15,7 +15,7 @@
 
 int		carriage_return_test(void)
 {
-	if (atoi("\r+877BellPrime") == ft_atoi("\r+877BellPrime"))
+	if (atoi("\r+877 BellPrime") == ft_atoi("\r+877 BellPrime"))
 		return (0);
 	else
 		return (-1);

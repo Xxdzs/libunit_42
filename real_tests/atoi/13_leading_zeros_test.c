@@ -15,7 +15,7 @@
 
 int		leading_zeros_test(void)
 {
-	if (atoi(" 000231") == ft_atoi(" 000231"))
+	if (atoi("000231") == ft_atoi("000231"))
 		return (0);
 	else
 		return (-1);

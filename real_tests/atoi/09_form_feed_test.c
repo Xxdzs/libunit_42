@@ -15,7 +15,7 @@
 
 int		form_feed_test(void)
 {
-	if (atoi(" \f 16127 Carol Prime") == ft_atoi(" \f 16127 Carol Prime"))
+	if (atoi("\f -16127 CarolPrime") == ft_atoi("\f -16127 CarolPrime"))
 		return (0);
 	else
 		return (-1);

@@ -15,7 +15,7 @@
 
 int		invalid_first_char_test(void)
 {
-	if (atoi("_197 Chen") == ft_atoi("_197 Chen"))
+	if (atoi("~197 Chen") == ft_atoi("~197 Chen"))
 		return (0);
 	else
 		return (-1);

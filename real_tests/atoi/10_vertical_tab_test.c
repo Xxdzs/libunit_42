@@ -15,7 +15,7 @@
 
 int		vertical_tab_test(void)
 {
-	if (atoi(" \v 7057 Cuban Prime") == ft_atoi(" \v 7057 Cuban Prime"))
+	if (atoi("\v7057 CubanPrime") == ft_atoi("\v7057 CubanPrime"))
 		return (0);
 	else
 		return (-1);

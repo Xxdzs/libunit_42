@@ -15,7 +15,7 @@
 
 int		space_test(void)
 {
-	if (atoi(" 496") == ft_atoi(" 496"))
+	if (atoi("  -496") == ft_atoi("  -496"))
 		return (0);
 	else
 		return (-1);
