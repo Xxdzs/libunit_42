@@ -1,7 +1,7 @@
 NAME=tests
 
 ATOI_FOLDER=atoi
-ATOI_FILES=00_tests_launcher 01_ok_test 02_ko_test 03_sigv_test wrong_atoi
+ATOI_FILES=00_tests_launcher 01_ok_test 02_ko_test 03_sigv_test 04_buse_test wrong_atoi
 FILES=main
 FILES+=$(addprefix $(ATOI_FOLDER)/,$(ATOI_FILES))
 FOLDERS=$(ATOI_FOLDER)

@@ -21,5 +21,6 @@ int		tests_launcher(void)
 	load_test(&tests, "OK test", &ok_test);
 	load_test(&tests, "K0 test", &ko_test);
 	load_test(&tests, "SIGV test", &sigv_test);
+	load_test(&tests, "BUSE test", &buse_test);
 	return (launch_tests("Tests", &tests));
 }
