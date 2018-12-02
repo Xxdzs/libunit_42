@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   libunit.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: angagnie <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/12/02 17:43:17 by angagnie          #+#    #+#             */
+/*   Updated: 2018/12/02 17:43:20 by angagnie         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef LIBUNIT_H
 # define LIBUNIT_H
 
@@ -15,7 +27,10 @@ struct					s_test
 
 # define NEW_TEST(NAME, FUNCTION) (t_test){NAME, FUNCTION}
 
-int						load_test(t_array *list, const char *name, t_fptr function);
-int						launch_tests(const char *name, t_array *list);
+int						load_test(t_array *list,
+								const char *name,
+								t_fptr function);
+int						launch_tests(const char *name,
+								t_array *list);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: angagnie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/01 21:39:01 by angagnie          #+#    #+#             */
-/*   Updated: 2018/12/02 15:21:53 by angagnie         ###   ########.fr       */
+/*   Updated: 2018/12/02 17:44:04 by angagnie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 int				load_test(t_array *list, const char *name, t_fptr function)
 {
 	const t_test	test = NEW_TEST(name, function);
+
 	fta_append(list, &test, 1);
 	return (0);
 }
@@ -49,12 +50,14 @@ static unsigned	run_test(t_test *test)
 
 int				launch_tests(const char *name, t_array *list)
 {
-	void		*iterator = ARRAY_ITERATOR(list);
-	unsigned	success = 0;
+	void		*iterator;
+	unsigned	success;
 
+	success = 0;
+	iterator = ARRAY_ITERATOR(list);
 	ft_printf("%s : ", name);
 	while (ARRAY_HASNEXT(list, iterator))
-		success += run_test((t_test*)iterator);	
+		success += run_test((t_test*)iterator);
 	ft_printf("\n%u / %u tests passed\n", success, list->size);
 	return (-(success != list->size));
 }
