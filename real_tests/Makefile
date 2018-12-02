@@ -1,3 +1,5 @@
+NAME=real_tests
+
 ATOI_FOLDER=atoi
 ATOI_FILES=00_atoi_launcher 01_basic_number_test 02_negative_test 03_empty_test \
 	04_negative_zero_test 05_space_test 06_plus_sign_test 07_tab_test \
@@ -23,8 +25,15 @@ LFLAGS=-L $(LIBUNIT_PATH) -lunit
 LFLAGS+=-L $(LIBFT_PATH) -lft
 FLAGS=-Wall -Wextra -Werror $(IFLAGS) $(LFLAGS)
 
-test: $(SOURCES) | $(LIBFT) $(LIBUNIT)
-	$(COMPILER) $(FLAGS) $^
+MAKEFLAGS+=-s
+
+all: $(NAME)
+
+$(NAME): $(SOURCES) | $(LIBFT) $(LIBUNIT)
+	$(COMPILER) $(FLAGS) $^ -o $@
+
+test: $(NAME)
+	./$(NAME)
 
 $(LIBFT):
 	make -C $(LIBFT_PATH) all
@@ -32,4 +41,9 @@ $(LIBFT):
 $(LIBUNIT):
 	make -C $(LIBUNIT_PATH) all
 
-.PHONY: test
+fclean:
+	rm -f $(NAME)
+
+re: fclean all
+
+.PHONY: test all fclean re
