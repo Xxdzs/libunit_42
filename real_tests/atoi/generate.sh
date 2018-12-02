@@ -6,34 +6,36 @@
 #    By: angagnie <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/01 22:42:13 by angagnie          #+#    #+#              #
-#    Updated: 2018/12/02 13:48:46 by angagnie         ###   ########.fr        #
+#    Updated: 2018/12/02 13:57:12 by angagnie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 header="atoi_tests.h"
 launcher="00_launcher.c"
 ft_header="\
-# **************************************************************************** #\
-#                                                                              #\
-#                                                         :::      ::::::::    #\
-#    generate.sh                                        :+:      :+:    :+:    #\
-#                                                     +:+ +:+         +:+      #\
-#    By: angagnie <marvin@42.fr>                    +#+  +:+       +#+         #\
-#                                                 +#+#+#+#+#+   +#+            #\
-#    Created: 2018/12/01 22:42:13 by angagnie          #+#    #+#              #\
-#    Updated: 2018/12/02 13:44:47 by angagnie         ###   ########.fr        #\
-#                                                                              #\
-# **************************************************************************** #\n"
+/* ************************************************************************** */\n\
+/*                                                                            */\n\
+/*                                                        :::      ::::::::   */\n\
+/*   libunit.c                                          :+:      :+:    :+:   */\n\
+/*                                                    +:+ +:+         +:+     */\n\
+/*   By: angagnie <marvin@42.fr>                    +#+  +:+       +#+        */\n\
+/*                                                +#+#+#+#+#+   +#+           */\n\
+/*   Created: 2018/12/01 21:39:01 by angagnie          #+#    #+#             */\n\
+/*   Updated: 2018/12/01 21:39:06 by angagnie         ###   ########.fr       */\n\
+/*                                                                            */\n\
+/* ************************************************************************** */\n"
 
 echo "Generating atoi tests"
+echo "$ft_header"
+
 
 # Header
-echo $ft_header > $header
+echo "$ft_header" > $header
 echo "#ifndef $(echo $header | tr '[a-z].' '[A-Z]_')" >> $header
 echo "# define $(echo $header | tr '[a-z].' '[A-Z]_')\n" >> $header
 
 # Launcher
-echo $ft_header > $launcher
+echo "$ft_header" > $launcher
 echo '#include "libunit.h"' >> $launcher
 echo "#include \"$header\"\n" >> $launcher
 echo "int\t\tatoi_launcher(void)\n{" >> $launcher
@@ -43,14 +45,14 @@ echo "\n\ttest_list[0] = NEW_ARRAY(t_test);" >> $launcher
 count=1
 for input in "basic|28" "negative|-8128" "empty|" "negative_zero|-0" "space| 496" "plus_sign|+1729 Ramanujan" "tab| \\\t 33550336 Perfect" \
 	"carriage_return| \\\r +877 Bell Prime" "form_feed| \\\f 16127 Carol Prime" "vertical_tab| \\\v 7057 Cuban Prime" "two_plus_signs|++3" \
-	"invalid_first_char|_197 Chen" "leading_zeros| 000000000002311 Euclid Prime" "combo|\\\r \\\v \\\n -0000000987654321" \
+	"invalid_first_char|_197 Chen" "leading_zeros| 000231" "combo|\\\r \\\v \\\n -0000000987654321" \
 	"int_min|-2147483648" "int_max|2147483647"
 do
 	name=${input%%|*}_test
 	str='"'${input#*|}'"'
 	filename=$(printf "%.2i" $count)_${name}.c
 	echo $filename
-	echo $ft_header > $filename
+	echo "$ft_header" > $filename
 	echo '#include "libft.h"' >> $filename
 	echo '#include <stdlib.h>\n' >> $filename
 	echo "int\t\t${name}(void)\n{" >> $filename
