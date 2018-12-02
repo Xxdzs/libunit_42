@@ -6,7 +6,7 @@
 /*   By: angagnie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/02 17:43:17 by angagnie          #+#    #+#             */
-/*   Updated: 2018/12/02 17:43:20 by angagnie         ###   ########.fr       */
+/*   Updated: 2018/12/02 19:03:44 by angagnie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 # include "ft_array.h"
 
 typedef int				(*t_fptr)(void);
-
 typedef struct s_test	t_test;
+typedef t_array			t_tests;
 
 struct					s_test
 {
@@ -26,6 +26,7 @@ struct					s_test
 };
 
 # define NEW_TEST(NAME, FUNCTION) (t_test){NAME, FUNCTION}
+# define NEW_TESTS NEW_ARRAY(t_test)
 
 int						load_test(t_array *list,
 								const char *name,
