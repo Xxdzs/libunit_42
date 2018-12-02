@@ -6,7 +6,7 @@
 #    By: angagnie <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/01 22:42:13 by angagnie          #+#    #+#              #
-#    Updated: 2018/12/02 20:40:58 by angagnie         ###   ########.fr        #
+#    Updated: 2018/12/02 21:07:34 by angagnie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,6 +26,8 @@ ft_header="\
 generate()
 {
 	fun=$1
+	shift
+	lib=$1
 	shift
 	header="${fun}_tests.h"
 	launcher="00_${fun}_launcher.c"
@@ -56,8 +58,7 @@ generate()
 		echo "\t$filename"
 		echo "$ft_header" | sed "s/&/$(printf %-40s $filename)/" > $filename
 		echo '#include "libft.h"' >> $filename
-		echo '#include <string.h>' >> $filename
-		echo '#include <stddef.h>\n' >> $filename
+		echo "#include <$lib.h>\n" >> $filename
 		echo "int\t\t${name}(void)\n{" >> $filename
 		echo "\tif (${fun}(${str}) == ft_${fun}(${str}))" >> $filename
 		echo "\t\treturn (0);" >> $filename
@@ -70,15 +71,22 @@ generate()
 
 	echo "\treturn (launch_tests(\"${fun}\", test_list));\n}" >> $launcher
 	echo "\n#endif" >> $header
+	cd ..
 }
 
 if test $# = 0
 then
-	generate "strlen" 'basic_string|"Hello_World"' \
+	generate "strlen" "string" 'basic_string|"Hello\040World"' \
 		'empty_string|""' 'other|"\\\tHello\0World"' 'null|NULL'
+	generate "atoi" "stdlib" "basic_number|28" "negative|-8128" "empty|" "negative_zero|-0" \
+    "space|\040-496" "plus_sign|+1729Ramanujan" "tab|\\\t33550336Perfect" \
+    "carriage_return|\\\r+877BellPrime" "form_feed|\\\f16127CarolPrime" \
+    "vertical_tab|\\\v7057CubanPrime" "two_plus_signs|++3" \
+    "invalid_first_char|_197Chen" "leading_zeros|000231" \
+    "combo|\040\\\r\\\v\\\n\040-00000987654321" "int_min|-2147483648" "int_max|2147483647"
 else
 	if test $1 = "fclean"
 	then
-		rm -rf strlen
+		rm -rf strlen atoi
 	fi
 fi
