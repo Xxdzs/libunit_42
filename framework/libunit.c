@@ -6,7 +6,7 @@
 /*   By: angagnie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/01 21:39:01 by angagnie          #+#    #+#             */
-/*   Updated: 2018/12/02 17:44:04 by angagnie         ###   ########.fr       */
+/*   Updated: 2018/12/02 19:41:00 by angagnie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,16 +34,16 @@ static unsigned	run_test(t_test *test)
 	else
 	{
 		wait(&status);
-		ft_printf("[%s ", test->name);
+		ft_printf("\t%s :\t[", test->name);
 		if (status == 0)
-			ft_printf("%sOK", COLOR(GREEN));
+			ft_printf("%sOK", COLOR(BOLD, GREEN));
 		else if (status == SIGBUS)
 			ft_printf("%sBUSE", COLOR(BOLD, RED));
 		else if (status == SIGSEGV)
 			ft_printf("%sSIGV", COLOR(BOLD, RED));
 		else
 			ft_printf("%sKO", COLOR(RED));
-		ft_printf("%s]", EOC);
+		ft_printf("%s]\n", EOC);
 	}
 	return (status == 0);
 }
@@ -55,9 +55,12 @@ int				launch_tests(const char *name, t_array *list)
 
 	success = 0;
 	iterator = ARRAY_ITERATOR(list);
-	ft_printf("%s : ", name);
+	ft_printf("%s {\n", name);
 	while (ARRAY_HASNEXT(list, iterator))
 		success += run_test((t_test*)iterator);
-	ft_printf("\n%u / %u tests passed\n", success, list->size);
+	ft_printf("\t%s%u / %u %stests passed%s\n}\n\n",
+			  (success == list->size ? COLOR(GREEN) : COLOR(RED)),
+			  success, list->size,
+			  COLOR(ITALIC, DARK, WHITE), EOC);
 	return (-(success != list->size));
 }
