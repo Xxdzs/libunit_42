@@ -6,11 +6,12 @@
 /*   By: angagnie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/01 21:39:01 by angagnie          #+#    #+#             */
-/*   Updated: 2018/12/01 21:39:06 by angagnie         ###   ########.fr       */
+/*   Updated: 2018/12/02 15:00:18 by angagnie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libunit.h"
+#include "ft_color.h"
 #include <signal.h>
 
 #define IS_CHILD 0
@@ -31,13 +32,13 @@ static unsigned	run_test(t_test *test)
 		wait(&status);
 		ft_printf("[%s ", test->name);
 		if (status == 0)
-			ft_printf("OK");
+			ft_printf("%sOK%s", COLOR(GREEN), EOC);
 		else if (status == SIGBUS)
-			ft_printf("BUSE");
+			ft_printf("%sBUSE%s", COLOR(BOLD, RED), EOC);
 		else if (status == SIGSEGV)
-			ft_printf("SIGV");
+			ft_printf("%sSIGV%s", COLOR(BOLD, RED), EOC);
 		else
-			ft_printf("KO");
+			ft_printf("%sKO%s", COLOR(RED), EOC);
 		ft_printf("]");
 	}
 	return (status == 0);
