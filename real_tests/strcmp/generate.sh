@@ -6,7 +6,7 @@
 #    By: weilin <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/01 22:42:13 by angagnie          #+#    #+#              #
-#    Updated: 2018/12/02 22:30:58 by weilin           ###   ########.fr        #
+#    Updated: 2018/12/02 22:47:42 by angagnie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -68,6 +68,6 @@ do
 	let count++
 done
 
-echo "\treturn (launch_test(test_list));\n}" >> $launcher
+echo "\treturn (launch_tests(\"${function}\", test_list));\n}" >> $launcher
 echo "\n#endif" >> $header
 echo "Done"

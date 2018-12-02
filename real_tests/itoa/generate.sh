@@ -6,11 +6,11 @@
 #    By: weilin <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/01 22:42:13 by angagnie          #+#    #+#              #
-#    Updated: 2018/12/02 22:14:46 by weilin           ###   ########.fr        #
+#    Updated: 2018/12/02 22:49:18 by angagnie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-function="ft_itoa"
+function="itoa"
 header="${function}_tests.h"
 launcher="00_${function}_launcher.c"
 ft_header="\
@@ -54,7 +54,7 @@ do
 	echo '#include "libft.h"' >> $filename
 	echo '#include <string.h>\n' >> $filename
 	echo "int\t\t${name}(void)\n{" >> $filename
-	echo "\tif (strcmp(${function}(${s1}), ${s2}) == 0)" >> $filename
+	echo "\tif (strcmp(ft_${function}(${s1}), ${s2}) == 0)" >> $filename
 	echo "\t\treturn (0);" >> $filename
 	echo "\telse" >> $filename
 	echo "\t\treturn (-1);\n}" >> $filename
@@ -63,6 +63,6 @@ do
 	let count++
 done
 
-echo "\treturn (launch_test(test_list));\n}" >> $launcher
+echo "\treturn (launch_tests(\"${function}\", test_list));\n}" >> $launcher
 echo "\n#endif" >> $header
 echo "Done"
