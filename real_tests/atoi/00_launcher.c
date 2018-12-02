@@ -6,7 +6,7 @@
 /*   By: angagnie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/01 21:39:01 by angagnie          #+#    #+#             */
-/*   Updated: 2018/12/01 21:39:06 by angagnie         ###   ########.fr       */
+/*   Updated: 2018/12/02 16:57:45 by angagnie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,5 @@ int		atoi_launcher(void)
 	load_test(test_list, "combo test", &combo_test);
 	load_test(test_list, "int min test", &int_min_test);
 	load_test(test_list, "int max test", &int_max_test);
-	return (launch_test(test_list));
+	return (launch_tests("atoi", test_list));
 }
