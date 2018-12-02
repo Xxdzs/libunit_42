@@ -25,5 +25,5 @@ int		strcmp_launcher(void)
 	load_test(test_list, "null s1 test", &null_s1_test);
 	load_test(test_list, "null s2 test", &null_s2_test);
 	load_test(test_list, "null both test", &null_both_test);
-	return (launch_test(test_list));
+	return (launch_tests("strcmp", test_list));
 }

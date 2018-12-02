@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   00_itoa_launcher.c                                 :+:      :+:    :+:   */
+/*   ft_itoa_tests.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: weilin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,18 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libunit.h"
-#include "itoa_tests.h"
+#ifndef FT_ITOA_TESTS_H
+# define FT_ITOA_TESTS_H
 
-int		itoa_launcher(void)
-{
-	t_array		test_list[1];
+int		basic_1_test(void);
+int		basic_2_test(void);
+int		min_test(void);
+int		max_test(void);
+int		zero_test(void);
 
-	test_list[0] = NEW_ARRAY(t_test);
-	load_test(test_list, "basic 1 test", &basic_1_test);
-	load_test(test_list, "basic 2 test", &basic_2_test);
-	load_test(test_list, "min test", &min_test);
-	load_test(test_list, "max test", &max_test);
-	load_test(test_list, "zero test", &zero_test);
-	return (launch_tests("itoa", test_list));
-}
+#endif
