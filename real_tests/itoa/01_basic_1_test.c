@@ -15,7 +15,7 @@
 
 int		basic_1_test(void)
 {
-	if (strcmp(itoa(123456), "123456") == 0)
+	if (strcmp(ft_itoa(123456), "123456") == 0)
 		return (0);
 	else
 		return (-1);

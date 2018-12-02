@@ -15,7 +15,7 @@
 
 int		min_test(void)
 {
-	if (strcmp(itoa(-2147483648), "-2147483648") == 0)
+	if (strcmp(ft_itoa(-2147483648), "-2147483648") == 0)
 		return (0);
 	else
 		return (-1);

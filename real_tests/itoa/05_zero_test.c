@@ -15,7 +15,7 @@
 
 int		zero_test(void)
 {
-	if (strcmp(itoa(0), "0") == 0)
+	if (strcmp(ft_itoa(0), "0") == 0)
 		return (0);
 	else
 		return (-1);

@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-function="itoa"
+function="ft_itoa"
 header="${function}_tests.h"
 launcher="00_${function}_launcher.c"
 ft_header="\

@@ -15,7 +15,7 @@
 
 int		basic_2_test(void)
 {
-	if (strcmp(itoa(-987654321), "-987654321") == 0)
+	if (strcmp(ft_itoa(-987654321), "-987654321") == 0)
 		return (0);
 	else
 		return (-1);
