@@ -30,7 +30,7 @@
 # define WHITE	37
 
 # define COLOR(...) CAT(_COLOR_,ARG_COUNT(__VA_ARGS__))(__VA_ARGS__)
-# define _COLOR_1(A) TO_STR(\e[Am)
+# define _COLOR_1(A) TO_STR(\e[CAT(A,m))
 # define _COLOR_2(A,B) TO_STR(\e[A;CAT(B,m))
 # define _COLOR_3(A,B,C) TO_STR(\e[A;B;CAT(C,m))
 # define _COLOR_4(A,B,C,D) TO_STR(\e[A;B;C;CAT(D,m))
