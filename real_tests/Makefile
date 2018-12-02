@@ -7,7 +7,7 @@ ATOI_FILES=00_atoi_launcher 01_basic_number_test 02_negative_test 03_empty_test 
 	11_two_plus_signs_test 12_invalid_first_char_test 13_leading_zeros_test \
 	14_combo_test 15_int_min_test 16_int_max_test
 STRLEN_FOLDER=strlen
-STRLEN_FILES=00_strlen_launcher 01_basic_test 02_empty_string_test 03_other_test 04_null_test
+STRLEN_FILES=00_strlen_launcher 01_basic_string_test 02_empty_string_test 03_other_test 04_null_test
 FILES=main
 FILES+=$(addprefix $(ATOI_FOLDER)/,$(ATOI_FILES))
 FILES+=$(addprefix $(STRLEN_FOLDER)/,$(STRLEN_FILES))
