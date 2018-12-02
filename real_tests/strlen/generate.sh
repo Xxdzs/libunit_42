@@ -6,7 +6,7 @@
 #    By: angagnie <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/01 22:42:13 by angagnie          #+#    #+#              #
-#    Updated: 2018/12/02 16:57:14 by angagnie         ###   ########.fr        #
+#    Updated: 2018/12/02 17:07:22 by angagnie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,7 +42,7 @@ echo "\tt_array\t\ttest_list[1];" >> $launcher
 echo "\n\ttest_list[0] = NEW_ARRAY(t_test);" >> $launcher
 
 count=1
-for input in 'basic|"Hello World"' 'empty|""' "other|\"\\\v\\\nHello\\\0World\"" \
+for input in 'basic|"Hello World"' 'empty_string|""' "other|\"\\\v\\\nHello\\\0World\"" \
 	"null|NULL"
 do
 	name=${input%%|*}_test

@@ -13,7 +13,7 @@
 #include "libft.h"
 #include <stdlib.h>
 
-int		basic_test(void)
+int		basic_number_test(void)
 {
 	if (atoi("28") == ft_atoi("28"))
 		return (0);

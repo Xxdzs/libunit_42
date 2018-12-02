@@ -14,7 +14,7 @@
 #include <string.h>
 #include <stddef.h>
 
-int		empty_test(void)
+int		empty_string_test(void)
 {
 	if (strlen("") == ft_strlen(""))
 		return (0);

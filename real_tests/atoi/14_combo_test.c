@@ -15,7 +15,7 @@
 
 int		combo_test(void)
 {
-	if (atoi("\r\v\n-000987654321") == ft_atoi("\r\v\n-000987654321"))
+	if (atoi("\r\v\n-00000987654321") == ft_atoi("\r\v\n-00000987654321"))
 		return (0);
 	else
 		return (-1);

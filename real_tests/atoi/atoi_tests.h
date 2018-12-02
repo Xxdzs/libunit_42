@@ -13,7 +13,7 @@
 #ifndef ATOI_TESTS_H
 # define ATOI_TESTS_H
 
-int		basic_test(void);
+int		basic_number_test(void);
 int		negative_test(void);
 int		empty_test(void);
 int		negative_zero_test(void);
