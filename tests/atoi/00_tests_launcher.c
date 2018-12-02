@@ -6,14 +6,14 @@
 /*   By: angagnie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/02 18:10:00 by angagnie          #+#    #+#             */
-/*   Updated: 2018/12/02 19:04:08 by angagnie         ###   ########.fr       */
+/*   Updated: 2018/12/02 20:45:21 by angagnie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libunit.h"
 #include "tests.h"
 
-int		tests_launcher()
+int		tests_launcher(void)
 {
 	t_tests		tests;
 

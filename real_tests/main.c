@@ -6,13 +6,13 @@
 /*   By: angagnie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/02 18:54:52 by angagnie          #+#    #+#             */
-/*   Updated: 2018/12/02 18:54:55 by angagnie         ###   ########.fr       */
+/*   Updated: 2018/12/02 20:49:22 by angagnie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "launchers.h"
+#include "launchers.h"
 
-int		main()
+int		main(void)
 {
 	atoi_launcher();
 	strlen_launcher();

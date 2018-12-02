@@ -6,7 +6,7 @@
 /*   By: angagnie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/01 21:39:01 by angagnie          #+#    #+#             */
-/*   Updated: 2018/12/02 19:41:00 by angagnie         ###   ########.fr       */
+/*   Updated: 2018/12/02 20:46:05 by angagnie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,8 @@ int				launch_tests(const char *name, t_array *list)
 	while (ARRAY_HASNEXT(list, iterator))
 		success += run_test((t_test*)iterator);
 	ft_printf("\t%s%u / %u %stests passed%s\n}\n\n",
-			  (success == list->size ? COLOR(GREEN) : COLOR(RED)),
-			  success, list->size,
-			  COLOR(ITALIC, DARK, WHITE), EOC);
+			(success == list->size ? COLOR(GREEN) : COLOR(RED)),
+			success, list->size,
+			COLOR(ITALIC, DARK, WHITE), EOC);
 	return (-(success != list->size));
 }

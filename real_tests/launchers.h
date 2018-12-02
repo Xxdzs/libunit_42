@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   launcher.h                                         :+:      :+:    :+:   */
+/*   launchers.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: angagnie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/02 16:50:55 by angagnie          #+#    #+#             */
-/*   Updated: 2018/12/02 16:51:46 by angagnie         ###   ########.fr       */
+/*   Updated: 2018/12/02 20:49:02 by angagnie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LAUNCHER_H
-# define LAUNCHER_H
+#ifndef LAUNCHERS_H
+# define LAUNCHERS_H
 
-int     atoi_launcher(void);
-int     strlen_launcher(void);
+int		atoi_launcher(void);
+int		strlen_launcher(void);
 
 #endif
