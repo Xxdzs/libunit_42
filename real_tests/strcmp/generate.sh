@@ -6,7 +6,7 @@
 #    By: weilin <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/01 22:42:13 by angagnie          #+#    #+#              #
-#    Updated: 2018/12/02 20:06:08 by weilin           ###   ########.fr        #
+#    Updated: 2018/12/02 22:30:58 by weilin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,8 +43,8 @@ echo "\n\ttest_list[0] = NEW_ARRAY(t_test);" >> $launcher
 
 count=1
 for input in 'pure_alpha|"first_string"|"second_string"' 'empty_s1|""|"why"'\
-	'empty_s2|"are"|""' 'empty_both|""|""' 'NULL_s1|NULL|"you"' \
-	'NULL_s2|"so handsome/beautiful"|NULL' 'NULL_both|NULL|NULL'
+	'empty_s2|"are"|""' 'empty_both|""|""' 'null_s1|NULL|"you"' \
+	'null_s2|"so handsome/beautiful"|NULL' 'null_both|NULL|NULL'
 do
 	name=$(echo $input | cut -d '|' -f1)_test
 	s1=$(echo $input | cut -d '|' -f2)
@@ -53,8 +53,7 @@ do
 	echo $filename
 	echo "$ft_header" | sed "s/\&/$(printf %-30s ${filename})/" > $filename
 	echo '#include "libft.h"' >> $filename
-	echo '#include <string.h>' >> $filename
-	echo '#include <stddef.h>\n' >> $filename
+	echo '#include <string.h>\n' >> $filename
 	echo "int\t\t${name}(void)\n{" >> $filename
 	echo "\tchar\t*s1;" >> $filename
 	echo "\tchar\t*s2;\n" >> $filename
