@@ -16,6 +16,5 @@
 int		basic_string_test(void);
 int		empty_string_test(void);
 int		other_test(void);
-int		null_test(void);
 
 #endif

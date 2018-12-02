@@ -15,7 +15,7 @@
 
 int		basic_string_test(void)
 {
-	if (strlen("Hello_World") == ft_strlen("Hello_World"))
+	if (strlen("Hello World") == ft_strlen("Hello World"))
 		return (0);
 	else
 		return (-1);
