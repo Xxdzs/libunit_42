@@ -6,21 +6,35 @@
 #    By: angagnie <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/01 22:42:13 by angagnie          #+#    #+#              #
-#    Updated: 2018/12/02 13:44:47 by angagnie         ###   ########.fr        #
+#    Updated: 2018/12/02 13:48:46 by angagnie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 header="atoi_tests.h"
 launcher="00_launcher.c"
+ft_header="\
+# **************************************************************************** #\
+#                                                                              #\
+#                                                         :::      ::::::::    #\
+#    generate.sh                                        :+:      :+:    :+:    #\
+#                                                     +:+ +:+         +:+      #\
+#    By: angagnie <marvin@42.fr>                    +#+  +:+       +#+         #\
+#                                                 +#+#+#+#+#+   +#+            #\
+#    Created: 2018/12/01 22:42:13 by angagnie          #+#    #+#              #\
+#    Updated: 2018/12/02 13:44:47 by angagnie         ###   ########.fr        #\
+#                                                                              #\
+# **************************************************************************** #\n"
 
 echo "Generating atoi tests"
 
 # Header
-echo "#ifndef $(echo $header | tr '[a-z].' '[A-Z]_')" > $header
+echo $ft_header > $header
+echo "#ifndef $(echo $header | tr '[a-z].' '[A-Z]_')" >> $header
 echo "# define $(echo $header | tr '[a-z].' '[A-Z]_')\n" >> $header
 
 # Launcher
-echo '#include "libunit.h"' > $launcher
+echo $ft_header > $launcher
+echo '#include "libunit.h"' >> $launcher
 echo "#include \"$header\"\n" >> $launcher
 echo "int\t\tatoi_launcher(void)\n{" >> $launcher
 echo "\tt_array\ttest_list[1];" >> $launcher
@@ -35,8 +49,9 @@ do
 	name=${input%%|*}_test
 	str='"'${input#*|}'"'
 	filename=$(printf "%.2i" $count)_${name}.c
-	echo $filename "\t\t$str"
-	echo '#include "libft.h"' > $filename
+	echo $filename
+	echo $ft_header > $filename
+	echo '#include "libft.h"' >> $filename
 	echo '#include <stdlib.h>\n' >> $filename
 	echo "int\t\t${name}(void)\n{" >> $filename
 	echo "\tif (atoi(${str}) == ft_atoi(${str}))" >> $filename
