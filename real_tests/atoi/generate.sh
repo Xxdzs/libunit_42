@@ -6,7 +6,7 @@
 #    By: angagnie <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/01 22:42:13 by angagnie          #+#    #+#              #
-#    Updated: 2018/12/02 12:26:40 by angagnie         ###   ########.fr        #
+#    Updated: 2018/12/02 13:34:24 by angagnie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,10 +15,16 @@ launcher="00_launcher.c"
 
 echo "Generating atoi tests"
 
+# Header
+echo "#ifndef $(echo $header | tr '[a-z].' '[A-Z]_')" > $header
+echo "# define $(echo $header | tr '[a-z].' '[A-Z]_')\n" >> $header
+
+# Launcher
 echo '#include "libunit.h"' > $launcher
 echo "#include \"$header\"\n" >> $launcher
 echo "int\t\tatoi_launcher(void)\n{" >> $launcher
-echo "\tt_array\ttest_list[1] = {NEW_ARRAY(t_test)};\n" >> $launcher
+echo "\tt_array\ttest_list[1];\n" >> $launcher
+echo "\n\ntest_list[0] = NEW_ARRAY(t_test);" >> $launcher
 
 count=1
 for input in "basic|28" "negative|-8128" "empty|" "negative_zero|-0" "space| 496" "plus_sign|+1729 Ramanujan" "tab| \\\t 33550336 Perfect" \
@@ -37,10 +43,11 @@ do
 	echo "\t\treturn (0);" >> $filename
 	echo "\telse" >> $filename
 	echo "\t\treturn (-1);\n}" >> $filename
+	echo "int\t\t${name}(void);" >> $header
 	echo "\tload_test(test_list, \"$(echo $name | tr '_' ' ')\", &$name);" >> $launcher
 	let count++
 done
 
 echo "\treturn (launch_test(test_list));\n}" >> $launcher
-
+echo "\n#endif" >> $header
 echo "Done"
