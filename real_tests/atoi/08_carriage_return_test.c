@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libunit.c                                          :+:      :+:    :+:   */
+/*   08_carriage_return_test.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: angagnie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/01 21:39:01 by angagnie          #+#    #+#             */
-/*   Updated: 2018/12/01 21:39:06 by angagnie         ###   ########.fr       */
+/*   Created: 2018/12/02 21:55:49 by angagnie          #+#    #+#             */
+/*   Updated: 2018/12/02 21:55:49 by angagnie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 int		carriage_return_test(void)
 {
-	if (atoi(" \r +877 Bell Prime") == ft_atoi(" \r +877 Bell Prime"))
+	if (atoi("\r+877BellPrime") == ft_atoi("\r+877BellPrime"))
 		return (0);
 	else
 		return (-1);

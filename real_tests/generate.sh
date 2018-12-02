@@ -53,7 +53,7 @@ generate()
 	for input in $@
 	do
 		name=${input%%|*}_test
-		str=${input#*|}
+		str='"'${input#*|}'"'
 		filename=$(printf "%.2i" $count)_${name}.c
 		echo "\t$filename"
 		echo "$ft_header" | sed "s/&/$(printf %-40s $filename)/" > $filename
@@ -76,14 +76,14 @@ generate()
 
 if test $# = 0
 then
-	generate "strlen" "string" 'basic_string|"Hello\040World"' \
-		'empty_string|""' 'other|"\\\tHello\0World"' 'null|NULL'
+	generate "strlen" "string" 'basic_string|Hello\040World' \
+		'empty_string|' 'other|\011!@#$%^&*()'
 	generate "atoi" "stdlib" "basic_number|28" "negative|-8128" "empty|" "negative_zero|-0" \
-    "space|\040-496" "plus_sign|+1729Ramanujan" "tab|\\\t33550336Perfect" \
-    "carriage_return|\\\r+877BellPrime" "form_feed|\\\f16127CarolPrime" \
-    "vertical_tab|\\\v7057CubanPrime" "two_plus_signs|++3" \
-    "invalid_first_char|_197Chen" "leading_zeros|000231" \
-    "combo|\040\\\r\\\v\\\n\040-00000987654321" "int_min|-2147483648" "int_max|2147483647"
+		"space|\040-496" "plus_sign|+1729Ramanujan" "tab|\\\t33550336Perfect" \
+		"carriage_return|\\\r+877BellPrime" "form_feed|\\\f16127CarolPrime" \
+		"vertical_tab|\\\v7057CubanPrime" "two_plus_signs|++3" \
+		"invalid_first_char|_197Chen" "leading_zeros|000231" \
+		"combo|\040\\\r\\\v\\\n\040-00000987654321" "int_min|-2147483648" "int_max|2147483647"
 else
 	if test $1 = "fclean"
 	then

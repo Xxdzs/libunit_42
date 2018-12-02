@@ -12,7 +12,6 @@
 
 #include "libft.h"
 #include <string.h>
-#include <stddef.h>
 
 int		empty_string_test(void)
 {

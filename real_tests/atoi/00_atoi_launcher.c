@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libunit.c                                          :+:      :+:    :+:   */
+/*   00_atoi_launcher.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: angagnie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -15,9 +15,9 @@
 
 int		atoi_launcher(void)
 {
-	t_array	test_list[1];
+	t_tests		test_list[1];
 
-	test_list[0] = NEW_ARRAY(t_test);
+	test_list[0] = NEW_TESTS;
 	load_test(test_list, "basic number test", &basic_number_test);
 	load_test(test_list, "negative test", &negative_test);
 	load_test(test_list, "empty test", &empty_test);
